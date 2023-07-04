@@ -24,8 +24,9 @@ pipeline {
             stash( includes:"hello-world-webapp.war", name: "package_maven")
           }
         }
-      }
+      }   
     }
+  }
     
     stage ("Deploy the maven package") {
       steps {
@@ -44,4 +45,4 @@ pipeline {
       } 
     } 
   }
-}
+
