@@ -6,7 +6,7 @@ pipeline {
       steps {
         node ("Build_server") {
           
-          Checkout the SCM
+          //Checkout the SCM
           print ("Downloading the source code from GitHub")
           checkout scmGit(
             branches: [[name: '*/maven_branch']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rnepte/intellipaat-demo.git']]
