@@ -6,7 +6,7 @@ pipeline {
       steps {
         node ("Build_server") {
           
-          Checkout the SCM
+          //Checkout the SCM
           print ("Downloading the source code from GitHub")
           checkout scmGit(
             branches: [[name: '*/maven_branch']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rnepte/intellipaat-demo.git']]
@@ -19,9 +19,9 @@ pipeline {
 
           //Stash the war apackage
           print ("Preparing the war package to copy to the deploy server")
-          dir("/home/ubuntu/build_server/workspace/single_job_pipeline@2/target/") {
-            stash( includes:"/home/ubuntu/build_server/workspace/single_job_pipeline@2/target/hello-world-webapp.war", name: "package_maven")
-            //stash( includes:"hello-world-webapp.war", name: "package_maven")
+          dir("/home/ubuntu/build_server/workspace/single_job_pipeline/target/") {
+            //stash( includes:"/home/ubuntu/build_server/workspace/single_job_pipeline/target/hello-world-webapp.war", name: "package_maven")
+            stash( includes:"hello-world-webapp.war", name: "package_maven")
           }
         }
       }
